@@ -37,6 +37,18 @@ Claims are labelled from an informal idea through published work so that review
 state is visible. A label describes review progress, not mathematical truth.
 See [docs/CLAIM_LEVELS.md](docs/CLAIM_LEVELS.md) for the canonical definitions.
 
+## Credit for Mathematical Results
+
+Credit for a mathematical result belongs to contributors who made documented,
+substantive mathematical contributions, approved the final formal statement
+and proof version, and accept responsibility for their assigned portions.
+Repository ownership, project initiation, maintenance, funding, or general
+participation does not automatically confer solver or theorem-author credit.
+When substantive contributions cannot be reliably separated, the result is
+credited collectively to its recorded result-specific collaboration team—not
+to every repository participant. See [GOVERNANCE.md](GOVERNANCE.md) for the
+complete policy.
+
 ## Repository Map
 
 - [foundations/](foundations/) holds definitions, notation, and reading paths.
