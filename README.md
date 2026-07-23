@@ -2,14 +2,15 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-An open, worldwide, rigorous, and reproducible research lab for NP-hard problems.
+A public collaboration for research on NP-hard problems. Work is organized
+through explicit definitions, reproducible experiments, reviewable claims, and
+documented responsibilities.
 
-Chinese mathematicians and the Chinese-language mathematics community have
-made outstanding contributions to mathematics. We welcome contributors from
-China and every part of the world to work together here.
+Participation is open to contributors regardless of location, language,
+affiliation, background, or experience. Contributions are evaluated by their
+documented content and evidence.
 
-> This project has not solved P versus NP. Finite experiments are evidence about
-> tested instances only; they are not proofs of unrestricted complexity claims.
+> This project has not solved P versus NP. Finite experiments are evidence about tested instances only; they are not proofs of unrestricted complexity claims.
 
 ## Start Here
 
@@ -19,9 +20,10 @@ is the [3-SAT definition](foundations/3-sat.md).
 
 ## Initial Focus: 3-SAT
 
-Our first track builds a trusted, reproducible 3-SAT baseline: precise
-definitions, reference solvers, small-instance checks, literature mapping, and
-reviewable hypotheses. We welcome exact, parameterized, approximation, and
+Our first track establishes a documented, reviewable, and reproducible 3-SAT
+baseline: precise definitions, reference solvers, small-instance checks,
+literature mapping, and reviewable hypotheses.
+We welcome exact, parameterized, approximation, and
 heuristic work when its scope and evidence are stated precisely.
 
 ## Ways to Contribute
@@ -44,6 +46,9 @@ substantive mathematical contributions, approved the final formal statement
 and proof version, and accept responsibility for their assigned portions.
 Repository ownership, project initiation, maintenance, funding, or general
 participation does not automatically confer solver or theorem-author credit.
+Maintenance, software, experiments, translation, review, funding, and other
+contributions are recorded under their actual roles and acknowledged
+accordingly.
 When substantive contributions cannot be reliably separated, the result is
 credited collectively to its recorded result-specific collaboration team—not
 to every repository participant. See [GOVERNANCE.md](GOVERNANCE.md) for the
@@ -67,9 +72,12 @@ domains must retain their finite-domain limitation.
 
 ## Languages and Translations
 
-English is the canonical technical language. Community-maintained translations
-are welcome; begin with the [Chinese introduction](README.zh-CN.md) and link
-translations to their English source.
+Each translation identifies its recorded source document and exact source commit using
+the source path and public commit SHA. When a translation is out of sync, the
+recorded path and public commit are the comparison point; the source language
+does not affect participation, review, or credit.
+See the [translation index](translations/README.md). A
+[Simplified Chinese translation](README.zh-CN.md) is currently available.
 
 ## Governance and Conduct
 
