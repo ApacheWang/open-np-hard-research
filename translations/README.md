@@ -35,9 +35,11 @@ Every translation records:
 
 Synchronization changes require public review. If a possible mismatch is
 reported, retain both the recorded source version and translation while the
-mismatch is investigated. When the recorded source document changes, compare
-it with the exact source commit and mark stale translations `needs-sync` until
-they are updated and reviewed.
+mismatch is investigated. Each mismatch report must identify the recorded
+source document path, exact source commit, and specific conflicting passage.
+When the recorded source document changes, compare it with the exact source
+commit and mark stale translations `needs-sync` until they are updated and
+reviewed.
 
 If the recorded source is wrong, fix that source first and then synchronize its
 translations. Do not treat an outdated translation as current.
