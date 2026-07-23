@@ -77,6 +77,9 @@ founder, all maintainers, or everyone who participated in the repository.
 Credit evidence includes Issues, commits, Pull Requests, proof dependencies,
 review discussions, counterexamples, and recorded responsibility approvals. A
 person cannot decide a dispute in which they have a direct credit interest.
+From the time a credit dispute opens until independent review completes, the
+disputed attribution must remain marked `unresolved`. No final solver or
+theorem-author attribution may be published while the dispute is unresolved.
 
 At least two reviewers without a direct stake examine a credit dispute
 publicly. They evaluate documented mathematical contribution and
@@ -90,6 +93,9 @@ reviewers disagree, attribution remains `unresolved` and an additional
 conflict-free reviewer or a new public review may be requested. Disagreement
 never defaults to owner or founder credit, and the repository owner cannot
 unilaterally publish a final solver-credit decision.
+
+Unresolved objections and the reviewers' final rationale must remain attached
+to the result record.
 
 ## Governance Changes
 
