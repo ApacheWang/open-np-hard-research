@@ -17,6 +17,9 @@ A proof package records:
 - open, resolved, and non-blocking reviewer objections;
 - status history and links to superseded versions;
 - all counterexamples and related negative results; and
+- contributor identities and their actual roles, including acknowledged
+  experiment execution, software, review, translation, and other work that
+  does not by itself receive solver or theorem-author credit; and
 - the contribution-responsibility ledger defined in
   [GOVERNANCE.md](../GOVERNANCE.md).
 
