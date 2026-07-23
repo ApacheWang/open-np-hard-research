@@ -1,6 +1,12 @@
 # Open NP-Hard Research
 
+**English** | [简体中文](README.zh-CN.md)
+
 An open, worldwide, rigorous, and reproducible research lab for NP-hard problems.
+
+Chinese mathematicians and the Chinese-language mathematics community have
+made outstanding contributions to mathematics. We welcome contributors from
+China and every part of the world to work together here.
 
 > This project has not solved P versus NP. Finite experiments are evidence about
 > tested instances only; they are not proofs of unrestricted complexity claims.
