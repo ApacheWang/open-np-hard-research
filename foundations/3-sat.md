@@ -30,6 +30,19 @@ This classification does not mean that every finite instance is equally hard.
 It also does not determine whether a particular heuristic is useful on a
 specific distribution.
 
+## Computational Model and Size Convention
+
+Decision-problem complexity uses the standard deterministic Turing-machine
+model for algorithms. Equivalently, membership in NP may be stated using a
+deterministic polynomial-time verifier with a polynomial-size certificate.
+Reductions are deterministic polynomial-time many-one reductions that preserve
+yes/no membership.
+
+Input size is the bit length of the encoded formula, not merely the number of
+variables or clauses. Python timing and operation measurements are
+implementation-specific finite evidence unless a separate proof establishes an
+asymptotic bound.
+
 ## Three Different Kinds of Result
 
 These statements must not be conflated:
