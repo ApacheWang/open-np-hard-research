@@ -92,6 +92,7 @@ The public functions are:
 parse_dimacs_3sat(text: str) -> Formula
 satisfies(formula: Formula, assignment: Mapping[int, bool]) -> bool
 brute_force_solve(formula: Formula) -> dict[int, bool] | None
+dpll_solve(formula: Formula) -> dict[int, bool] | None
 ```
 
 `parse_dimacs_3sat` returns only a tuple of clause tuples. It does not retain
@@ -113,6 +114,18 @@ numeric order, tries `False` before `True`, and returns the first satisfying
 mapping it finds. It returns `None` for UNSAT. Unused variables declared only
 in the DIMACS header are not present in the returned mapping.
 
+`dpll_solve` is a deterministic reference implementation, not a polynomial-time
+algorithm. It normalizes repeated literals and tautological clauses only inside
+its search, repeatedly applies unit propagation, chooses the lowest-numbered
+remaining variable, and tries `False` before `True`. A returned model contains
+exactly the variables occurring in the original formula; variables no longer
+needed after simplification are completed with `False`. The model is checked
+with `satisfies` before it is returned.
+
+Agreement between DPLL and brute force on a finite family is evidence only for
+that recorded family. It is not a proof of unrestricted correctness or a
+complexity-theoretic conclusion.
+
 Any change to these semantics requires failing regression tests first and a
 coordinated update to this document.
 
@@ -125,3 +138,6 @@ coordinated update to this document.
   [DOI: 10.1007/978-1-4684-2001-2_9](https://doi.org/10.1007/978-1-4684-2001-2_9)
 - DIMACS, “Satisfiability: Suggested Format,” revision of May 8, 1993.
   [Institutional PDF](https://www.cs.ubc.ca/~babic/doc/dimacs_cnf.pdf)
+- Martin Davis, George Logemann, and Donald W. Loveland, “A Machine Program for
+  Theorem-Proving,” *Communications of the ACM* 5(7), 394–397, 1962.
+  [DOI: 10.1145/368273.368557](https://doi.org/10.1145/368273.368557)
