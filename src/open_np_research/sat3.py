@@ -75,3 +75,111 @@ def brute_force_solve(formula: Formula) -> dict[int, bool] | None:
         if satisfies(formula, assignment):
             return assignment
     return None
+
+
+def _literal_order(literal: int) -> tuple[int, bool]:
+    return (abs(literal), literal < 0)
+
+
+def _normalize_for_dpll(formula: Formula) -> Formula:
+    normalized: list[Clause] = []
+    for clause in formula:
+        literals = set(clause)
+        if any(-literal in literals for literal in literals):
+            continue
+        normalized.append(tuple(sorted(literals, key=_literal_order)))
+    return tuple(normalized)
+
+
+def _apply_literal(clauses: Formula, literal: int) -> Formula | None:
+    false_literal = -literal
+    simplified: list[Clause] = []
+    for clause in clauses:
+        if literal in clause:
+            continue
+        reduced = tuple(
+            candidate for candidate in clause if candidate != false_literal
+        )
+        if not reduced:
+            return None
+        simplified.append(reduced)
+    return tuple(simplified)
+
+
+def _dpll_search(
+    clauses: Formula,
+    assignment: dict[int, bool],
+    variables: tuple[int, ...],
+) -> dict[int, bool] | None:
+    stack = [(clauses, assignment)]
+    while stack:
+        clauses, assignment = stack.pop()
+        if any(not clause for clause in clauses):
+            continue
+
+        conflict = False
+        while clauses:
+            units = sorted(
+                (clause[0] for clause in clauses if len(clause) == 1),
+                key=_literal_order,
+            )
+            if not units:
+                break
+
+            literal = units[0]
+            variable = abs(literal)
+            value = literal > 0
+            previous = assignment.get(variable)
+            if previous is not None and previous != value:
+                conflict = True
+                break
+
+            simplified = _apply_literal(clauses, literal)
+            if simplified is None:
+                conflict = True
+                break
+            assignment = {**assignment, variable: value}
+            clauses = simplified
+
+        if conflict:
+            continue
+        if not clauses:
+            return {
+                variable: assignment.get(variable, False)
+                for variable in variables
+            }
+
+        variable = min(
+            abs(literal)
+            for clause in clauses
+            for literal in clause
+            if abs(literal) not in assignment
+        )
+        # Push True first so the LIFO stack explores False first.
+        for value in (True, False):
+            literal = variable if value else -variable
+            simplified = _apply_literal(clauses, literal)
+            if simplified is not None:
+                stack.append(
+                    (
+                        simplified,
+                        {**assignment, variable: value},
+                    )
+                )
+    return None
+
+
+def dpll_solve(formula: Formula) -> dict[int, bool] | None:
+    variables = tuple(
+        sorted(
+            {
+                abs(literal)
+                for clause in formula
+                for literal in clause
+            }
+        )
+    )
+    model = _dpll_search(_normalize_for_dpll(formula), {}, variables)
+    if model is not None and not satisfies(formula, model):
+        raise AssertionError("DPLL returned a model that does not satisfy the formula")
+    return model
